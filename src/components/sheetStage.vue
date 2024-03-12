@@ -5,6 +5,7 @@
       <TableView />
       <ColHeader />
       <RowHeader />
+      <SheetCorner />
     </v-layer>
   </v-stage>
 </template>
@@ -14,10 +15,7 @@ import { defineProps, computed, reactive } from 'vue';
 import TableView from '@/components/tableView.vue';
 import ColHeader from '@/components/sheetHeader/colHeader.vue';
 import RowHeader from '@/components/sheetHeader/rowHeader.vue';
-import sheetCore from '@/hooks/generateTableWork';
-import setupProvides from '@/hooks/provides';
-const { rowConfig, colConfig, settings } = sheetCore();
-setupProvides({ rowConfig, colConfig, settings });
+import SheetCorner from '@/components/sheetCorner.vue';
 const props = defineProps<{ width: number; height: number }>();
 const height = computed(() => {
   return props.height;

@@ -7,7 +7,8 @@
       height,
       stroke,
       fill,
-      strokeWidth
+      strokeWidth,
+      index: 2
     }"
   />
   <v-text
@@ -18,7 +19,8 @@
       fontFamily: 'Arial',
       fill: '#000',
       width,
-      align: 'center' // 居中对齐文本
+      align: 'center', // 居中对齐文本
+      index: 2
     }"
   />
 </template>
@@ -28,12 +30,13 @@ import setupInjects from '@/hooks/injects';
 import { defineProps, computed } from 'vue';
 import { calculateWidthsOrHeightsUpToIndex } from '@/utils/sheetUtils';
 const props = defineProps<{ rowIndex: number; rowItem: RowConfig }>();
-const { rowConfig, settings } = setupInjects();
+const { rowConfig, settings, scrollY } = setupInjects();
 const y = computed(() => {
   return (
     calculateWidthsOrHeightsUpToIndex(rowConfig, props.rowIndex) +
     settings.colHeaderHeight +
-    settings.cellStrokeWidth
+    settings.cellStrokeWidth +
+    scrollY.value
   );
 });
 const width = computed(() => {

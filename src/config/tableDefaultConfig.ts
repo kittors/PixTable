@@ -8,5 +8,6 @@ const colHeaderHeight = 24;//默认列头高
 const rowHeaderWidth = 50;//默认行头宽
 const headerColor = '#F9FAFB'; //列头行头的背景色
 const cellStrokeWidth = 1;//单元格边框默认的宽度
-const defaultSettings = { rows, cols, cellWidth, cellHeight, cellColor, cellBorderColor, colHeaderHeight, rowHeaderWidth, headerColor, cellStrokeWidth }
+const cache = 2;//预渲染的个数
+const defaultSettings = { rows, cols, cellWidth, cellHeight, cellColor, cellBorderColor, colHeaderHeight, rowHeaderWidth, headerColor, cellStrokeWidth, cache }
 export default defaultSettings

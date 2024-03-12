@@ -7,8 +7,12 @@
       height: height,
       fill,
       stroke,
-      strokeWidth: 1
+      strokeWidth: 1,
+      index: 0
     }"
+    v-if="
+      rowIndex >= renderRowConfig.renderStartIndex && rowIndex <= renderRowConfig.renderEndIndex
+    "
   >
   </v-rect>
 </template>
@@ -26,19 +30,21 @@ const props = defineProps<{
   rowIndex: number;
 }>();
 
-const { settings, rowConfig, colConfig } = setupInjects();
+const { settings, rowConfig, colConfig, scrollX, scrollY, renderRowConfig } = setupInjects();
 const x = computed(() => {
   return (
     calculateWidthsOrHeightsUpToIndex(colConfig, props.colIndex) +
     settings.rowHeaderWidth +
-    settings.cellStrokeWidth
+    settings.cellStrokeWidth +
+    scrollX.value
   );
 });
 const y = computed(() => {
   return (
     calculateWidthsOrHeightsUpToIndex(rowConfig, props.rowIndex) +
     settings.colHeaderHeight +
-    settings.cellStrokeWidth
+    settings.cellStrokeWidth +
+    scrollY.value
   );
 });
 </script>

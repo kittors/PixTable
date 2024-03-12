@@ -9,4 +9,5 @@ declare type SheetSettings = {
     rowHeaderWidth?: number;
     headerColor?: string;
     cellStrokeWidth?: number;
+    cache?: number;
 }   

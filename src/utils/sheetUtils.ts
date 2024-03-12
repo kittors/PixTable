@@ -10,6 +10,8 @@ function columnIndexToTitle(index: number): string {
     return title;
 }
 
+
+//计算对应序号的累加 高和宽
 function calculateWidthsOrHeightsUpToIndex(config: ColConfig[] | RowConfig[], index: number): number {
     if (index <= 0 || index > config.length) {
         // 如果索引超出范围，则返回0
